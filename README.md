@@ -4,39 +4,37 @@
 
 ## Self code along
 
-### In ruby points to the object that 'owns' the currently executing code.
-
-### Here we are calling 'self' on both instances of 'price' and 'name' to allow us to add a list of ingredients to the add_ingredients method.
-
-### This is possible since self can be used within an instance method to refer to the class instance on which that method is being called.
+- In ruby 'self' points to the object that 'owns' the currently executing code.
+- Here we are calling 'self' on both instances of 'price' and 'name' to allow us to add a list of ingredients to the add_ingredients method.
+- This is possible since self can be used within an instance method to refer to the class instance on which that method is being called.
 
 ### The code below shows how self can be executed on a class instance
 
 
+<code>require 'pry'</code>
 <code>
-require 'pry'
-
 class Coffee
   attr_reader :name
   attr_accessor :price, :ingredients
-
+</code>
+<code>
   def initialize(name, price = 2.50)
     @name = name
     @price = price
     @ingredients = []
   end
-
+</code>
+<code>
   def add_ingredients(ingredient)
     self.price += 0.50
     self.ingredients << ingredient
   end
 end
-
+</code>
+<code>
 c1 = Coffee.new('rose', 3.00)
 c2 = Coffee.new('Tod')
-
 binding.pry
-
 </code>
 
 
